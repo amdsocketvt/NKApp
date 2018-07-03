@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "887676567624",
+    "firebase_url": "https://nguyenkimproject.firebaseio.com",
+    "project_id": "nguyenkimproject",
+    "storage_bucket": "nguyenkimproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887676567624:android:d7236bd9743f820e",
+        "android_client_info": {
+          "package_name": "com.nguyenkimapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887676567624-kgf6rjvmqfamucv39mvr3nqsqsq8k0gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nguyenkimapp",
+            "certificate_hash": "77ba69996ca5c875467ebe6f7c9addd5f049c8c9"
+          }
+        },
+        {
+          "client_id": "887676567624-gbu9k1794blj494i0nb49ed9sqgbv7m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTMO2iriUiIw_QqcJXXZF3U9NjEA64GBw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887676567624-7sibimcf8aoogg5ib32ftgos2l6kcd6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

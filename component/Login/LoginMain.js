@@ -21,6 +21,19 @@ export default class LoginMain extends Component {
         this.setState({ status: true })
     }
 
+    _checkNavigate(){
+        //defines data
+        let dataNavi = this.props.navigation.state.params
+        if(dataNavi != null){
+            //if data.Type true -> goto Login View func else <>
+            if(dataNavi.type){
+                this.changeViewLogin()
+            }else{
+                this.changeViewRegister()
+            }
+        }
+    }
+
     render() {
         const { status } = this.state;
         const textColorLogin = status ? '#DC0021' : '#E6E6E6'
@@ -70,6 +83,11 @@ export default class LoginMain extends Component {
                 </View>
             </ImageBackground>
         );
+    }
+
+    componentDidMount(){
+        //call check navigate func
+        this._checkNavigate()
     }
 }
 

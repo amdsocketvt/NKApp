@@ -1,6 +1,5 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
-import Splash from './Component/Login/Splash'
-import IntroSlider from './Component/Login/IntroSlider'
+import LoginRoute from './Route/LoginRoute'
 
-AppRegistry.registerComponent('NguyenKimApp', () => IntroSlider);
+
+AppRegistry.registerComponent('NguyenKimApp', () => LoginRoute);

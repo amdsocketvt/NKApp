@@ -107,7 +107,7 @@ export default class IntroSlider extends Component{
     );
     render(){
         return(
-            <View style={{flex : 1}}>
+            <View style={{flex : 1, backgroundColor: 'white'}}>
               <StatusBar
                 backgroundColor="red"
                 barStyle="light-content"
@@ -126,10 +126,14 @@ export default class IntroSlider extends Component{
                 />
 
                 <View style={styles.containBtn}>
-                    <TouchableOpacity style={[styles.button, styles.buttonRegister]}>
+                    <TouchableOpacity 
+                    style={[styles.button, styles.buttonRegister]}
+                    onPress={()=>{this.props.navigation.navigate('LoginMain' , {type:false})}}>
                       <Text style={styles.txtReg}>Đăng ký</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.button, styles.buttonLogin]}>
+                    <TouchableOpacity 
+                    style={[styles.button, styles.buttonLogin]}
+                    onPress={()=>{this.props.navigation.navigate('LoginMain' , {type:true})}}>
                       <Text style={styles.txtLog}>Đăng nhập</Text>
                     </TouchableOpacity>
                 </View>

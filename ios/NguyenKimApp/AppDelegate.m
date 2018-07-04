@@ -6,9 +6,10 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <GoogleSignIn/GoogleSignIn.h>
 
 @implementation AppDelegate
 
@@ -17,7 +18,8 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                           didFinishLaunchingWithOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"NguyenKimApp"
                                                initialProperties:nil
@@ -31,5 +33,37 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+  
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                openURL:url
+                                                      sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                             annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                  ];
+  // Add any custom logic here.
+  return handled;
+}
+  
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+//
+//  return [[FBSDKApplicationDelegate sharedInstance] application:application
+//                                                        openURL:url
+//                                              sourceApplication:sourceApplication
+//                                                     annotation:annotation
+//          ]
+//  || [RNGoogleSignin application:application
+//                         openURL:url
+//               sourceApplication:sourceApplication
+//                      annotation:annotation
+//      ];
+//}
 
 @end

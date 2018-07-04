@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>887676567624-i4hpbcup1a0s8lrj06fa98v19ujr4gli.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.887676567624-i4hpbcup1a0s8lrj06fa98v19ujr4gli</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCntRMYcLPBNefL-IrSsmvCnN3axL6XP0I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>887676567624</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.NguyenKimApp</string>
+	<key>PROJECT_ID</key>
+	<string>nguyenkimproject</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nguyenkimproject.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:887676567624:ios:08fd75ef94943aa4</string>
+	<key>DATABASE_URL</key>
+	<string>https://nguyenkimproject.firebaseio.com</string>
+</dict>
+</plist>

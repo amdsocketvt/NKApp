@@ -32,7 +32,10 @@ let userObj = {
 
 
 export default class SocialType extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = { user: ''};
+      }
 
         /**  Login with facebook */
             _fbAuth = () => { 
@@ -101,41 +104,48 @@ export default class SocialType extends Component {
         }
 
         async setupGoogleSignin() {
-            try {
+        //     try {
             await GoogleSignin.hasPlayServices({ autoResolve: true });
             await GoogleSignin.configure({
-                webClientId: "887676567624-gbu9k1794blj494i0nb49ed9sqgbv7m1.apps.googleusercontent.com"    //,
-                // offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-                // hostedDomain: '', // specifies a hosted domain restriction
-                // forceConsentPrompt: true, // [Android] if you want to show the authorization prompt at each login
-                // accountName: '', // [Android] specifies an account name on the device that should be used  
+                webClientId: "887676567624-gbu9k1794blj494i0nb49ed9sqgbv7m1.apps.googleusercontent.com",
+                iosClientId: "887676567624-i4hpbcup1a0s8lrj06fa98v19ujr4gli.apps.googleusercontent.com",    //,
+                offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
+                hostedDomain: '', // specifies a hosted domain restriction
+                forceConsentPrompt: true, // [Android] if you want to show the authorization prompt at each login
+                accountName: '', // [Android] specifies an account name on the device that should be used  
             });
 
-            const result = await GoogleSignin.currentUserAsync();
-            console.log("user",result);
-           // console.log("user.idToken:",  result.idToken);
-            //this.setState({ name:result.name, link:result.photo  });
-            userObj = {
-                nameUser: result.name,
-                emailUser: result.email,
-                photoUser: result.photo,
-                passwordUser: '123456',
-                nameSocial: 'google',
-                idSocial: result.id,
-                accessToken: result.accessToken,    
-                status:1
+            const user = await GoogleSignin.currentUserAsync();
+            console.log(user);
+
+            this.setState({ user });
             };
-            console.log("Google userObj: ", userObj);
-            try{
-                AsyncStorage.setItem(_USEROBJECT_,  JSON.stringify(userObj));
-            } 
-            catch(error){
-            } 
-            }
-            catch (err) {
-            console.log("Google signin error", err.code, err.message);
-            }
-        }
+
+        // //     const result = await GoogleSignin.currentUserAsync();
+        // //     console.log("user",result);
+        // //    // console.log("user.idToken:",  result.idToken);
+        // //     //this.setState({ name:result.name, link:result.photo  });
+        // //     userObj = {
+        // //         nameUser: result.name,
+        // //         emailUser: result.email,
+        // //         photoUser: result.photo,
+        // //         passwordUser: '123456',
+        // //         nameSocial: 'google',
+        // //         idSocial: result.id,
+        // //         accessToken: result.accessToken,    
+        // //         status:1
+        // //     };
+        // //     console.log("Google userObj: ", userObj);
+        // //     try{
+        // //         AsyncStorage.setItem(_USEROBJECT_,  JSON.stringify(userObj));
+        // //     } 
+        // //     catch(error){
+        // //     } 
+        //     }
+        //     catch (err) {
+        //     console.log("Google signin error", err.code, err.message);
+        //     }
+        // }
 
         /**  Login with google */
         _googleAuth = () => {
@@ -144,20 +154,20 @@ export default class SocialType extends Component {
 
         zaloSocicalHandle() {
             if (this.props.status === "login") {
-                console.log("Xu ly login");
+                console.log("Xu ly zalo");
             }
         }
 
         fbSocicalHandle() {
             if (this.props.status === "login") {              
-                console.log("Xu ly login");
+                console.log("Xu ly fb login");
                 this._fbAuth();
             }
         }
 
         gmailSocicalHandle() {
             if (this.props.status === "login") {
-                console.log("Xu ly login");
+                console.log("Xu ly gg login");
                 this._googleAuth();
             }
         }

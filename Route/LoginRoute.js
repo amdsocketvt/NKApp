@@ -7,6 +7,7 @@ import LoginMain from '../Component/Login/LoginMain'
 import HomePage from '../Component/Home/HomePage'
 
 const LoginRoute = createStackNavigator({
+   
     IntroSlider : {screen : IntroSlider},
     LoginMain : {screen : LoginMain},
     Home : {screen : HomePage}

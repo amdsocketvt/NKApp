@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity , TouchableHighlight, ScrollView, StyleSheet, Image} from 'react-native'
+import { View, Text, Platform, TouchableOpacity , TouchableHighlight, ScrollView, StyleSheet, Image} from 'react-native'
 import HeaderMenu from '../../Global/HeaderMenu/HeaderMenu'
 import ImageSlider from './ImageSlider'
 import HorizontalMenu from './HorizontalMenu'
@@ -47,7 +47,7 @@ export default class HomePage extends Component{
     render(){
 
         return(
-            <View style={{flex : 1, backgroundColor : '#F0F1F5'}}>
+            <View style={styles.container}>
 
                 <HeaderMenu/>
                 <ScrollView>
@@ -77,8 +77,13 @@ export default class HomePage extends Component{
 }
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#F5FCFF',
+      flex : 1,
+      backgroundColor : '#F0F1F5',
+      ...Platform.select({
+        ios: {
+          marginTop: 20
+        }
+      })
     },
 
     buttons: {

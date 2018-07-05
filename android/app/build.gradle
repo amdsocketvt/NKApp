@@ -152,7 +152,7 @@ dependencies {
     implementation 'com.android.support:exifinterface:+'
     // should be at least 15.0.0 to work with most recent APIS
     implementation 'com.google.firebase:firebase-core:16.0.0'
-    implementation project(':react-native-camera')
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text , StyleSheet, TouchableOpacity, Image} from 'react-native';
 import LeftMenu from './LeftMenu'
-
+import {RNCamera} from 'react-native-camera'
 export default class HeaderMenu extends Component{
 
     constructor(props){
@@ -46,7 +46,11 @@ export default class HeaderMenu extends Component{
 
                 </View>
                 {this.state.isMenu ? <View style={{position : 'absolute', left : 0, top : 56, backgroundColor :'#bdc3c7'}}><LeftMenu/></View> : <View></View>}
-                
+                {this.state.isQR ? <RNCamera
+                style={{flex : 1}}
+                barCodeTypes={[RNCamera.Constants.BarCodeType.qr, RNCamera.Constants.BarCodeType.code128]}
+                onBarCodeRead={(data) => this.barcodeRead(data)}
+                />:null}
             </View>
         );
     }

@@ -2,6 +2,7 @@ package com.nguyenkimapp;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;   
@@ -38,8 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGoogleSigninPackage(),
-            new FBSDKPackage(),
+            new RNCameraPackage(),
             new RNGoogleSigninPackage(),
             new FBSDKPackage(mCallbackManager)
       );

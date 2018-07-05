@@ -137,21 +137,22 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-google-signin')
-    compile project(':react-native-fbsdk')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:26.0.2"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-google-signin')
+    implementation project(':react-native-fbsdk')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:26.0.2"
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "com.facebook.android:facebook-android-sdk:[4,5)"   
-    compile project(":react-native-fbsdk")  
+    implementation project(":react-native-fbsdk")  
     implementation(project(":react-native-google-signin")) {
         exclude group: "com.google.android.gms" // very important
     }
     implementation 'com.google.android.gms:play-services-auth:15.0.0'
+    implementation 'com.android.support:exifinterface:+'
     // should be at least 15.0.0 to work with most recent APIS
-    compile 'com.google.firebase:firebase-core:16.0.0'
-
+    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation project(':react-native-camera')
 }
 
 apply plugin: 'com.google.gms.google-services'

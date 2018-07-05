@@ -7,5 +7,6 @@ target "NguyenKimApp" do
     pod 'FBSDKShareKit'
     pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
-    
+    pod 'RNGoogleSignIn'
 end
+

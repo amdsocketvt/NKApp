@@ -9,12 +9,17 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-//#import <GoogleSignIn/GoogleSignIn.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType:@"plist"];
+  NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+  [GIDSignIn sharedInstance].clientID = [plistDict objectForKey:@"887676567624-i4hpbcup1a0s8lrj06fa98v19ujr4gli.apps.googleusercontent.com"];
+  
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
@@ -42,7 +47,9 @@
                                                                 openURL:url
                                                       sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                                              annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-                  ];
+                  ]||[[GIDSignIn sharedInstance] handleURL:url
+                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
   // Add any custom logic here.
   return handled;
 }
@@ -51,19 +58,18 @@
   [FBSDKAppEvents activateApp];
 }
 
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-//  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-//
-//  return [[FBSDKApplicationDelegate sharedInstance] application:application
-//                                                        openURL:url
-//                                              sourceApplication:sourceApplication
-//                                                     annotation:annotation
-//          ]
-//  || [RNGoogleSignin application:application
-//                         openURL:url
-//               sourceApplication:sourceApplication
-//                      annotation:annotation
-//      ];
-//}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  // ADD THE FOLLOWING CODE
+  if ([[GIDSignIn sharedInstance] handleURL:url
+                          sourceApplication:sourceApplication
+                                 annotation:annotation]) {
+    return YES;
+  }
+  // ADD THE ABOVE CODE
+  return YES;
+}
 
 @end

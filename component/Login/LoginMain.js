@@ -79,7 +79,7 @@ export default class LoginMain extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style= {styles.line} />
-                    {this.state.status ? <LoginView/> : <RegisterView/>}
+                    {this.state.status ? <LoginView navi={this.props.navigation}/> : <RegisterView/>}
                 </View>
             </ImageBackground>
         );

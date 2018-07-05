@@ -9,6 +9,9 @@ import SocialType from '../../Global/SocialType';
 
 export default class LoginView extends Component {
     
+    gotoMain(){
+        this.props.navi.navigate('Home')
+    }
     render() {
 
         return (
@@ -16,7 +19,7 @@ export default class LoginView extends Component {
                 <View style={{flex:1, height:550}}>
                     <InputType titleText='Email' placeHolder='Nhập email'/>
                     <InputType titleText='Mật khẩu' placeHolder='Nhập mật khẩu' secureText={true}/>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.gotoMain()}>
                         <ButtonType titleButton='Đăng nhập'/>
                     </TouchableOpacity>
                     <TouchableOpacity>

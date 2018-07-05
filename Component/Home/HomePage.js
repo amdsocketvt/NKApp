@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity , TouchableHighlight, ScrollView, StyleSheet, Image} from 'react-native'
-import HeaderMenu from '../../HeaderMenu/HeaderMenu'
+import HeaderMenu from '../../Global/HeaderMenu/HeaderMenu'
 import ImageSlider from './ImageSlider'
 import HorizontalMenu from './HorizontalMenu'
 import FontAwesome, { Icons } from 'react-native-fontawesome';

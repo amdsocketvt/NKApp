@@ -26,22 +26,22 @@ export default class HeaderMenu extends Component{
             <View style={styles.header}>
                     <TouchableOpacity style={styles.btnMenu}
                     onPress={()=>{this.setState({isMenu : this.state.isMenu ? false : true})}}>
-                        <Image source={require('../../Images/Line.png')}/>
+                        <Image source={require('../../Resource/Images/Line.png')}/>
                     </TouchableOpacity>
                     <View style={styles.searchBar}>
                         <TouchableOpacity style={{flexDirection:'row'}}>
-                            <Image source={require('../../Images/filler.png')} style={{width: 20, height: 20}}/>
+                            <Image source={require('../../Resource/Images/filler.png')} style={{width: 20, height: 20}}/>
 
                             <Text>Tìm sản phẩm, thương hiệu</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={()=>{this.setState({isQR : this.state.isQR ? false : true})}}>
-                            <Image source={require('../../Images/qr.png')} style={{width: 20, height: 20}}/>
+                            <Image source={require('../../Resource/Images/qr.png')} style={{width: 20, height: 20}}/>
                         </TouchableOpacity>
 
                     </View>
                     <TouchableOpacity style={styles.btnMenu}>
-                        <Image source={require('../../Images/Cart.png')}/>
+                        <Image source={require('../../Resource/Images/Cart.png')}/>
                     </TouchableOpacity>
 
                 </View>

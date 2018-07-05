@@ -8,4 +8,6 @@ target "NguyenKimApp" do
     pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
     
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
 end

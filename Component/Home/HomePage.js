@@ -1,51 +1,21 @@
 import React, { Component } from 'react'
 import { View, Text, Platform, TouchableOpacity , TouchableHighlight, ScrollView, StyleSheet, Image} from 'react-native'
 import HeaderMenu from '../../Global/HeaderMenu/HeaderMenu'
-import ImageSlider from './ImageSlider'
+import BannerSlider from '../../Global/BannerSlider'
 import HorizontalMenu from './HorizontalMenu'
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import ListCategory from './Comp/ListCategory';
-const images = [
-    'https://cdn.nguyenkimmall.com/images/promo/521/HW_768x298.jpg',
-    'https://cdn.nguyenkimmall.com/images/promo/526/Tivi-Panasonic-768x298.jpg',
-    'https://cdn.nguyenkimmall.com/images/promo/527/home-scroll-mobile-A6-km-new.jpg'
-  ];
+
+
+
 export default class HomePage extends Component{
 
-    _rendSlide = ({ index, item, style, width }) =>(
-        <View
-        key={index}
-        style={[style, {backgroundColor : 'white'}]}
-      >
-        <Image source={{ uri: item }} style={{flex: 1,
-            width: null,
-            height: null,
-            resizeMode: 'contain'}} />
-      </View>
-    )
-
-    _rendButton = (position, move) =>(
-        <View style={styles.buttons}>
-        {images.map((image, index) => {
-          return (
-            <TouchableHighlight
-              key={index}
-              underlayColor="#ccc"
-              onPress={() => move(index)}
-              style={[styles.button, position === index  && styles.buttonSelected]}
-            >
-              <Text >
-
-              </Text>
-            </TouchableHighlight>
-          );
-        })}
-      </View>
-    )
-
-
     render(){
-
+      const images = [
+        'https://cdn.nguyenkimmall.com/images/promo/521/HW_768x298.jpg',
+        'https://cdn.nguyenkimmall.com/images/promo/526/Tivi-Panasonic-768x298.jpg',
+        'https://cdn.nguyenkimmall.com/images/promo/527/home-scroll-mobile-A6-km-new.jpg'
+      ];
         return(
             <View style={styles.container}>
 
@@ -60,15 +30,11 @@ export default class HomePage extends Component{
                     <FontAwesome>{Icons.chevronRight}</FontAwesome>
 
                 </View>
-                <View style={{height : 160}}>
-                    <ImageSlider
-                        images={images}
-                        customSlide={this._rendSlide}
-                        customButtons={this._rendButton}
-                    />
-                </View>
+                
                 <HorizontalMenu/>
-
+                <BannerSlider
+                  data={images}
+                />
                 <ListCategory/>
               </ScrollView>
             </View>
